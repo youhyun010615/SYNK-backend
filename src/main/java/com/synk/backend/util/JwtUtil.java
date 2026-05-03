@@ -35,11 +35,11 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractUserId(String token) {
+    public String extractUserId(String token) { // 토큰에서 userId 꺼내기 (누가 보낸 요청인지 파악)
         return getClaims(token).getSubject();
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token) { // 요청마다 토큰이 유효한지 검증
         try {
             getClaims(token);
             return true;
