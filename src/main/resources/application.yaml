@@ -1,3 +1,36 @@
 spring:
   application:
-    name: backend
+    name: synk-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/synk?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+server:
+  port: 8080
+
+jwt:
+  secret: synk-secret-key-change-this-in-production-please
+  expiration: 86400000  # 24시간 (밀리초)
+
+logging:
+  level:
+    com.synk.backend: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
