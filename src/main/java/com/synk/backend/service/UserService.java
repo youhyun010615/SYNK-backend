@@ -1,6 +1,6 @@
-// 로그인ㅇ과 회원가입의 실제 로직 담당
+// 로그인과 회원가입의 실제 로직 담당
 
-package com.synk.backend.Service;
+package com.synk.backend.service;
 
 import com.synk.backend.dto.request.UserLoginRequest;
 import com.synk.backend.dto.request.UserSignupRequest;
@@ -9,7 +9,6 @@ import com.synk.backend.entity.User;
 import com.synk.backend.repository.UserRepository;
 import com.synk.backend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
