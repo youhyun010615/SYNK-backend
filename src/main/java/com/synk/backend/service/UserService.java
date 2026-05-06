@@ -6,6 +6,7 @@ import com.synk.backend.dto.request.UserLoginRequest;
 import com.synk.backend.dto.request.UserSignupRequest;
 import com.synk.backend.dto.response.UserLoginResponse;
 import com.synk.backend.entity.User;
+import com.synk.backend.exception.DuplicateUserIdException;
 import com.synk.backend.repository.UserRepository;
 import com.synk.backend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class UserService {
 
     public void signup(UserSignupRequest request){  // 새로운 사용자를 우리 서비스의 가족으로 받아들이는 과정
         if(userRepository.existsByUserId(request.getUserId())){
-            throw new IllegalArgumentException("이미 사용 중인 아이디입니다;");
+            throw new DuplicateUserIdException("이미 사용 중인 아이디입니다");
         }
 
         User user = User.builder()
